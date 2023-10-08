@@ -19,6 +19,9 @@ export class TodoService {
   async findOne(id: number) {
     return this.prisma.todo.findUnique({
       where: { id },
+      include: {
+        author: true,
+      },
     });
   }
 
